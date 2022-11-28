@@ -1,6 +1,6 @@
 const colors = {
   light: '#fffafa',
-  gray: 'f0f0f0',
+  gray: '#f0f0f0',
   charcoal: '#212121',
   primary: {
     regular: '#c576f6',
