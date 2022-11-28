@@ -6,6 +6,7 @@ const { primary, charcoal, gray } = colors
 const InputFormStyle = StyleSheet.create({
   container: {
     justifyContent: 'center',
+    alignSelf: 'center',
     width: '80%',
     height: '40%',
     borderRadius: 16,

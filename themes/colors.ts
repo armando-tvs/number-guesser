@@ -5,6 +5,10 @@ const colors = {
   primary: {
     regular: '#c576f6',
     hover: '#8952ac'
+  },
+  secondary: {
+    regular: '#75e6da',
+    hover: '#5db8ae'
   }
 }
 
