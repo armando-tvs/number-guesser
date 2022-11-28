@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { Text, TextInput, View } from 'react-native'
+import { useCallback, useState } from 'react'
+import { Alert, Text, TextInput, View } from 'react-native'
 import PrimaryButton from '../../atoms/PrimaryButton'
 import InputFormStyle from './style'
 
@@ -17,7 +17,20 @@ const InputForm = () => {
     )
   }
 
-  const resetInput = (): void => setInputValue('')
+  const onReset = (): void => setInputValue('')
+
+  const onConfirm = useCallback((): void => {
+    const inputValueToInt = parseInt(inputValue)
+
+    if (isNaN(inputValueToInt) || inputValueToInt < 1 || inputValueToInt > 99) {
+      Alert.alert('Out of range', 'Value should be between 0 to 99', [
+        { text: 'Close', onPress: onReset }
+      ])
+      return
+    }
+
+    onReset()
+  }, [inputValue])
 
   return (
     <View style={InputFormStyle.container}>
@@ -31,10 +44,10 @@ const InputForm = () => {
       />
       <View style={InputFormStyle.buttonsContainer}>
         <View style={InputFormStyle.buttonContainer}>
-          <PrimaryButton onPress={resetInput}>Reset</PrimaryButton>
+          <PrimaryButton onPress={onReset}>Reset</PrimaryButton>
         </View>
         <View style={InputFormStyle.buttonContainer}>
-          <PrimaryButton>Enter</PrimaryButton>
+          <PrimaryButton onPress={onConfirm}>Enter</PrimaryButton>
         </View>
       </View>
     </View>
