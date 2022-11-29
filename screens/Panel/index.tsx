@@ -1,9 +1,10 @@
-import { Text, View } from 'react-native'
+import { Text } from 'react-native'
+import BackgroundView from '../../components/organisms/BackgroundView'
 const Panel = () => {
   return (
-    <View>
+    <BackgroundView>
       <Text>Panel game screen</Text>
-    </View>
+    </BackgroundView>
   )
 }
 
