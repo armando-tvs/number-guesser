@@ -1,6 +1,6 @@
 import { ImageBackground, StyleSheet, Text, View } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
-import InputForm from '../../components/organisms/InputForm'
+import InputForm from '../../components/molecules/InputForm'
 import colors from '../../themes/colors'
 import homeStyle from './style'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
