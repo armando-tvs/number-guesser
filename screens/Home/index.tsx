@@ -17,11 +17,15 @@ const { charcoal, secondary } = colors
 type NavigationProps = NativeStackScreenProps<any, any>
 
 const Home: React.FunctionComponent<NavigationProps> = ({ navigation }) => {
-  const { setCurrentNumber } = useNumberContext()
+  const { currentNumber, setCurrentNumber } = useNumberContext()
   
   const onSubmit = (currentNumber: number) => {
     setCurrentNumber(currentNumber)
     navigation.navigate(gamePanel)
+  }
+
+  if (currentNumber) {
+    navigation.replace(gamePanel)
   }
 
   return (
