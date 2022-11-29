@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useState } from 'react'
 
 interface NumberContextType {
   currentNumber: number | undefined
@@ -10,13 +10,14 @@ const defaultContextValue = {
   setCurrentNumber: () => {}
 }
 
-const NumberContext = React.createContext<NumberContextType>(defaultContextValue)
+const NumberContext =
+  React.createContext<NumberContextType>(defaultContextValue)
 
 const NumberContextProvider: React.FunctionComponent<any> = ({ children }) => {
   const [currentNumber, setCurrentNumber] = useState<number>()
 
   return (
-    <NumberContext.Provider value={{  currentNumber, setCurrentNumber }}>
+    <NumberContext.Provider value={{ currentNumber, setCurrentNumber }}>
       {children}
     </NumberContext.Provider>
   )

@@ -18,7 +18,7 @@ type NavigationProps = NativeStackScreenProps<any, any>
 
 const Home: React.FunctionComponent<NavigationProps> = ({ navigation }) => {
   const { currentNumber, setCurrentNumber } = useNumberContext()
-  
+
   const onSubmit = (currentNumber: number) => {
     setCurrentNumber(currentNumber)
     navigation.navigate(gamePanel)
