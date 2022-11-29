@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react'
 import { Alert, Text, TextInput, View } from 'react-native'
 import PrimaryButton from '../../atoms/PrimaryButton'
+import InputFormProps from './inputFormProps'
 import InputFormStyle from './style'
 
 const isNumericValue = (value: string): boolean => {
@@ -8,7 +9,10 @@ const isNumericValue = (value: string): boolean => {
   return numberRegex.test(value)
 }
 
-const InputForm = () => {
+const InputForm: React.FunctionComponent<InputFormProps> = ({
+  onReset: onResetCallback,
+  onSubmit
+}) => {
   const [inputValue, setInputValue] = useState<string>('')
 
   const inputValueHandler = (textValue: string) => {
@@ -17,19 +21,25 @@ const InputForm = () => {
     )
   }
 
-  const onReset = (): void => setInputValue('')
+  const resetInputValue = (): void => setInputValue('')
+
+  const onReset = (): void => {
+    onResetCallback?.()
+    resetInputValue()
+  }
 
   const onConfirm = useCallback((): void => {
     const inputValueToInt = parseInt(inputValue)
 
     if (isNaN(inputValueToInt) || inputValueToInt < 1 || inputValueToInt > 99) {
       Alert.alert('Out of range', 'Value should be between 0 to 99', [
-        { text: 'Close', onPress: onReset }
+        { text: 'Close', onPress: resetInputValue }
       ])
       return
     }
 
-    onReset()
+    resetInputValue()
+    onSubmit(inputValueToInt)
   }, [inputValue])
 
   return (
