@@ -1,4 +1,5 @@
 import { Alert, View } from 'react-native'
+import { FontAwesome } from '@expo/vector-icons'
 import PrimaryButton from '../../components/atoms/PrimaryButton'
 import GuessHistory from '../../components/molecules/GuessHistory'
 import GuessPanel from '../../components/molecules/GuessPanel'
@@ -45,8 +46,12 @@ const Panel = () => {
     <BackgroundView>
       <GuessPanel isLoading={isLoading} value={currentGuess} />
       <View style={guessPanelStyle.buttonsContainer}>
-        <PrimaryButton onPress={lowerNumberHandler}>-</PrimaryButton>
-        <PrimaryButton onPress={higherNumberHandler}>+</PrimaryButton>
+        <PrimaryButton onPress={lowerNumberHandler}>
+          <FontAwesome name="minus" size={24} />
+        </PrimaryButton>
+        <PrimaryButton onPress={higherNumberHandler}>
+          <FontAwesome name="plus" size={24} />
+        </PrimaryButton>
       </View>
       <GuessHistory items={guessHistory} />
     </BackgroundView>
