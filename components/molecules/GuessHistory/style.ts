@@ -6,11 +6,7 @@ const { light, secondary } = colors
 const guessHistoryStyle = StyleSheet.create({
   container: {
     flex: 1,
-    alignSelf: 'center',
     alignItems: 'center',
-    backgroundColor: light,
-    borderRadius: 16,
-    width: '80%',
     paddingVertical: 16,
     paddingHorizontal: 32,
     marginTop: 16

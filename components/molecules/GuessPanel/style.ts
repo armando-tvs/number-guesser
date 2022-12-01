@@ -9,20 +9,7 @@ const guessPanelStyle = StyleSheet.create({
     marginVertical: 16,
     justifyContent: 'space-evenly',
     alignItems: 'center',
-    alignSelf: 'center',
-    width: '80%',
-    height: '40%',
-    borderRadius: 16,
-    backgroundColor: gray,
-    padding: 32,
-    elevation: 4,
-    shadowColor: charcoal,
-    shadowOffset: {
-      width: 0,
-      height: 2
-    },
-    shadowRadius: 6,
-    shadowOpacity: 0.25
+    padding: 32
   },
   title: {
     fontSize: 24,

@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react'
 import { Alert, Text, TextInput, View } from 'react-native'
 import PrimaryButton from '../../atoms/PrimaryButton'
+import BoxContainer from '../BoxContainer'
 import InputFormProps from './inputFormProps'
 import InputFormStyle from './style'
 
@@ -43,7 +44,7 @@ const InputForm: React.FunctionComponent<InputFormProps> = ({
   }, [inputValue])
 
   return (
-    <View style={InputFormStyle.container}>
+    <BoxContainer>
       <Text style={InputFormStyle.hintContainer}>Number to guess:</Text>
       <TextInput
         value={inputValue}
@@ -60,7 +61,7 @@ const InputForm: React.FunctionComponent<InputFormProps> = ({
           <PrimaryButton onPress={onConfirm}>Enter</PrimaryButton>
         </View>
       </View>
-    </View>
+    </BoxContainer>
   )
 }
 

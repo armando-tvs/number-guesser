@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Text, View } from 'react-native'
 import { useNumberContext } from '../../../context/NumberContext'
+import BoxContainer from '../BoxContainer'
 import GuessPanelProps from './GuessPanelProps'
 import guessPanelStyle from './style'
 
@@ -22,10 +23,10 @@ const GuessPanel: React.FunctionComponent<GuessPanelProps> = ({
   }, [value, isLoading, currentNumber])
 
   return (
-    <View style={guessPanelStyle.container}>
+    <BoxContainer style={guessPanelStyle.container}>
       <Text style={guessPanelStyle.title}>Is this your number?</Text>
       <Text style={guessPanelStyle.currentGuess}>{guessText}</Text>
-    </View>
+    </BoxContainer>
   )
 }
 

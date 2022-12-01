@@ -1,11 +1,12 @@
 import { FlatList, Text, View } from 'react-native'
+import BoxContainer from '../BoxContainer'
 import GuessHistoryProps from './GuessHistoryProps'
 import guessHistoryStyle from './style'
 
 const GuessHistory: React.FunctionComponent<GuessHistoryProps> = ({
   items
 }) => (
-  <View style={guessHistoryStyle.container}>
+  <BoxContainer style={guessHistoryStyle.container}>
     <Text style={guessHistoryStyle.header}>Prev attemps ({items.length})</Text>
     <FlatList
       data={items}
@@ -16,7 +17,7 @@ const GuessHistory: React.FunctionComponent<GuessHistoryProps> = ({
         </View>
       )}
     />
-  </View>
+  </BoxContainer>
 )
 
 export default GuessHistory
