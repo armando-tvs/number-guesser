@@ -18,10 +18,6 @@ const Home: React.FunctionComponent<NavigationProps> = ({ navigation }) => {
     navigation.navigate(gamePanel)
   }
 
-  if (currentNumber) {
-    navigation.replace(gamePanel)
-  }
-
   return (
     <BackgroundView>
       <InputForm onSubmit={onSubmit} />
