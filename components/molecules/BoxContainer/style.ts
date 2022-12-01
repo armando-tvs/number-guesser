@@ -1,5 +1,5 @@
-import { StyleSheet } from "react-native";
-import colors from "../../../themes/colors";
+import { StyleSheet } from 'react-native'
+import colors from '../../../themes/colors'
 
 const { gray, charcoal } = colors
 
