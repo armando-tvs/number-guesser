@@ -1,4 +1,4 @@
-import React, { ReactComponentElement } from 'react'
+import React from 'react'
 import { Pressable, Text, View } from 'react-native'
 import colors from '../../../themes/colors'
 import ButtonProps from './buttonProps'

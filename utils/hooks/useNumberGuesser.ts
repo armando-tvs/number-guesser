@@ -5,7 +5,6 @@ interface NumberGuesser {
   isLowerNumber: () => void
   currentGuess: number | undefined
   isLoading: boolean
-  guessHistory: Array<number>
 }
 
 const setNumberToGuess = (
@@ -27,12 +26,8 @@ const useNumberGuesser = (): NumberGuesser => {
   const [currentGuess, setCurrentGuess] = useState<number>(0)
   const [minNumber, setMinNumber] = useState<number>(0)
   const [maxNumber, setMaxNumber] = useState<number>(100)
-  const [guessHistory, setGuessHistory] = useState<Array<number>>([])
 
-  const { currentNumber } = useNumberContext()
-
-  const updateHistory = () =>
-    setGuessHistory((currentHistory) => [currentGuess, ...currentHistory])
+  const { currentNumber, updateHistory } = useNumberContext()
 
   const getNumberGuess = useCallback(() => {
     setLoading(true)
@@ -53,13 +48,13 @@ const useNumberGuesser = (): NumberGuesser => {
 
   const isHigherNumber = () => {
     if (!enabled) return
-    updateHistory()
+    updateHistory(currentGuess)
     setMinNumber((value) => (value === currentGuess ? value + 1 : currentGuess))
   }
 
   const isLowerNumber = () => {
     if (!enabled) return
-    updateHistory()
+    updateHistory(currentGuess)
     setMaxNumber((value) => (value === currentGuess ? value - 1 : currentGuess))
   }
 
@@ -67,8 +62,7 @@ const useNumberGuesser = (): NumberGuesser => {
     isHigherNumber,
     isLoading,
     isLowerNumber,
-    currentGuess,
-    guessHistory
+    currentGuess
   }
 }
 

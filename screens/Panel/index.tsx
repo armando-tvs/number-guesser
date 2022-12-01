@@ -9,15 +9,10 @@ import useNumberGuesser from '../../utils/hooks/useNumberGuesser'
 import guessPanelStyle from './style'
 
 const Panel = () => {
-  const {
-    currentGuess,
-    guessHistory,
-    isHigherNumber,
-    isLowerNumber,
-    isLoading
-  } = useNumberGuesser()
+  const { currentGuess, isHigherNumber, isLowerNumber, isLoading } =
+    useNumberGuesser()
 
-  const { currentNumber } = useNumberContext()
+  const { currentNumber, guessHistory } = useNumberContext()
 
   const displayAlert = (message: string) => {
     Alert.alert('Invalid action', message, [{ text: 'Try again' }])
