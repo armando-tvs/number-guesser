@@ -10,11 +10,15 @@ const {
 } = constants
 const Stack = createNativeStackNavigator()
 
+const screenOptions = {
+  headerShown: false
+}
+
 export default function App() {
   return (
     <NumberContextProvider>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName={home}>
+        <Stack.Navigator initialRouteName={home} screenOptions={screenOptions}>
           <Stack.Screen name={home} component={Home} />
           <Stack.Screen name={gamePanel} component={Panel} />
         </Stack.Navigator>
