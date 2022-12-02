@@ -5,14 +5,34 @@ import GuessHistory from '../../components/molecules/GuessHistory'
 import GuessPanel from '../../components/molecules/GuessPanel'
 import BackgroundView from '../../components/organisms/BackgroundView'
 import { useNumberContext } from '../../context/NumberContext'
-import useNumberGuesser from '../../utils/hooks/useNumberGuesser'
 import guessPanelStyle from './style'
+import { NativeStackScreenProps } from '@react-navigation/native-stack'
+import { useEffect } from 'react'
+import constants from '../../utils/constants'
 
-const Panel = () => {
-  const { currentGuess, isHigherNumber, isLowerNumber, isLoading } =
-    useNumberGuesser()
+const {
+  screens: { results }
+} = constants
 
-  const { currentNumber, guessHistory } = useNumberContext()
+const Panel: React.FunctionComponent<NativeStackScreenProps<any, any>> = ({
+  navigation
+}) => {
+  const {
+    currentNumber,
+    currentGuess,
+    isHigherNumber,
+    isLowerNumber,
+    isLoading,
+    guessHistory
+  } = useNumberContext()
+
+  useEffect(() => {
+    const areNotUndefinded = currentNumber && currentGuess
+
+    if (areNotUndefinded && currentGuess === currentNumber) {
+      navigation.navigate(results)
+    }
+  }, [currentGuess, currentNumber])
 
   const displayAlert = (message: string) => {
     Alert.alert('Invalid action', message, [{ text: 'Try again' }])
